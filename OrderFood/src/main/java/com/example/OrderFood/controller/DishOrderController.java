@@ -65,7 +65,7 @@ public class DishOrderController {
     /**
      * 小程序
      *
-     * 用户下单，获取订单
+     * 用户下单，新增订单
      *
      * @param order 前端取回的订单
      * @return 下单结果
