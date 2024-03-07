@@ -58,8 +58,8 @@ public class DishOrderController {
      *
      * 用户下单，获取订单
      *
-     * @param order
-     * @return
+     * @param order 前端取回的订单
+     * @return 下单结果
      */
     @PostMapping("/orderDish")
     public Result<?> orderDish(@RequestBody OrderDishVO order){
