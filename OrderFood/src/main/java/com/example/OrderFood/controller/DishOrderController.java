@@ -1,9 +1,12 @@
 package com.example.OrderFood.controller;
 
+import com.example.OrderFood.dto.DishDTO;
 import com.example.OrderFood.dto.OrderDTO;
 import com.example.OrderFood.entity.DishOrder;
 import com.example.OrderFood.entity.Result;
 import com.example.OrderFood.service.IDishOrderService;
+import com.example.OrderFood.service.IOrderDetailsService;
+import com.example.OrderFood.service.IUserService;
 import com.example.OrderFood.vo.OrderDishVO;
 import com.example.OrderFood.vo.OrderVO;
 import org.slf4j.Logger;
@@ -12,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,6 +36,10 @@ public class DishOrderController {
 
     @Autowired
     private IDishOrderService orderService;
+    @Autowired
+    private IUserService userService;
+    @Autowired
+    private IOrderDetailsService orderDetailsService;
 
     // 弃用
     @GetMapping("/userOrderList2/{username}")
@@ -63,8 +72,19 @@ public class DishOrderController {
      */
     @PostMapping("/orderDish")
     public Result<?> orderDish(@RequestBody OrderDishVO order){
-
-        return Result.success(order);
+        // 判断余额
+        boolean deductUserBalanceFlag = userService.deductUserBalance(order.getUsername(), order.getTotalPrice());
+        if (!deductUserBalanceFlag){
+            return Result.failure("余额不足");
+        }
+        // 新增订单
+        String orderID = orderService.addOrder(order.getUsername(), order.getTotalPrice());
+        // 新增订单详情
+        List<DishDTO> dishDTOS = order.getOrderTabs();
+        for (DishDTO dto : dishDTOS) {
+            orderDetailsService.addOrderDetail(orderID,dto.getDishno(),dto.getQuantity());
+        }
+        return Result.success("下单成功");
     }
 
 }

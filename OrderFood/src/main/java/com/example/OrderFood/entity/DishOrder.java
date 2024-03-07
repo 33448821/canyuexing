@@ -15,6 +15,13 @@ import java.time.LocalDateTime;
  */
 @TableName("dish_order")
 public class DishOrder implements Serializable {
+    public DishOrder(String orderId, Integer userId, LocalDateTime orderTime, BigDecimal totalPrice, Byte status) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.orderTime = orderTime;
+        this.totalPrice = totalPrice;
+        this.status = status;
+    }
 
     private static final long serialVersionUID = 1L;
 

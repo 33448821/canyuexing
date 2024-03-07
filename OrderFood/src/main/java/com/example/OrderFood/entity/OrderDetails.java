@@ -15,6 +15,11 @@ import java.io.Serializable;
  */
 @TableName("order_details")
 public class OrderDetails implements Serializable {
+    public OrderDetails(String orderId, Integer dishNo, Integer quantity) {
+        this.orderId = orderId;
+        this.dishNo = dishNo;
+        this.quantity = quantity;
+    }
 
     private static final long serialVersionUID = 1L;
 

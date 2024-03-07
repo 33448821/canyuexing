@@ -3,6 +3,7 @@ package com.example.OrderFood.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -24,11 +25,24 @@ public class User implements Serializable {
 
     private String phone;
 
-    private Double money;
+    private BigDecimal money;
 
     private String address;
 
     private String name;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", money=" + money +
+                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -62,11 +76,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Double getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(Double money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 
@@ -86,16 +100,13 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-            "id = " + id +
-            ", username = " + username +
-            ", password = " + password +
-            ", phone = " + phone +
-            ", money = " + money +
-            ", address = " + address +
-            ", name = " + name +
-        "}";
+    public User(Integer id, String username, String password, String phone, BigDecimal money, String address, String name) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.money = money;
+        this.address = address;
+        this.name = name;
     }
 }

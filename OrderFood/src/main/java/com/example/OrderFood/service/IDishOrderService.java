@@ -5,6 +5,7 @@ import com.example.OrderFood.entity.DishOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.OrderFood.vo.OrderVO;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface IDishOrderService extends IService<DishOrder> {
     List<OrderVO> getOrderDTOListByUsername(String username);
 
     List<DishOrder> getOrderByUsername(String username);
+
+    String addOrder(String username , BigDecimal totalPrice);
 }

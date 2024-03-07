@@ -17,4 +17,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderDetailsServiceImpl extends ServiceImpl<OrderDetailsMapper, OrderDetails> implements IOrderDetailsService {
 
+    @Override
+    public boolean addOrderDetail(String orderID,int dishNo, int quantity) {
+        OrderDetails orderDetails = new OrderDetails(orderID, dishNo, quantity);
+        return this.baseMapper.insert(orderDetails)>0;
+    }
 }

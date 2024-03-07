@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-03-05
  */
 public interface IOrderDetailsService extends IService<OrderDetails> {
-
+    boolean addOrderDetail(String orderID, int dishNo,int quantity);
 }

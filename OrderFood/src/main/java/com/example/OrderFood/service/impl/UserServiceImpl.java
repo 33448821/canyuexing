@@ -12,6 +12,7 @@ import com.example.OrderFood.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,4 +78,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     }
 
+    @Override
+    public boolean deductUserBalance(String username, BigDecimal balance) {
+        LambdaUpdateWrapper<User> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(User::getUsername,username);
+        User user = this.getOne(wrapper);
+        if (user.getMoney().compareTo(balance) >= 0){
+            user.setMoney(user.getMoney().subtract(balance));
+            this.update(user,wrapper);
+            return true;
+        }
+        return false;
+    }
 }
