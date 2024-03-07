@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.OrderFood.mapper.DishOrderMapper">
+
+    <!--根据用户名查询订单详情：菜品、单价、数量、总价、下单时间、状态(dish、order_details、dish_order)-->
+    <select id="selectAllOrderDetailsByUsername" resultType="com.example.OrderFood.dto.OrderDTO">
+        select do.order_id,
+               d.img,
+               d.dish_name,
+               d.price,
+               od.quantity,
+               do.total_price,
+               do.order_time,
+               do.status
+        from order_details od
+                 join dish d on d.dish_no = od.dish_no
+                 join dish_order do on do.order_id = od.order_id
+                 join user on user.id = do.user_id
+        where user.username = #{username}
+    </select>
+
+    <select id="selectByUsername" resultType="com.example.OrderFood.entity.DishOrder">
+        select order_id, user_id, order_time, total_price, status
+        from dish_order
+                 join user on user.id = dish_order.user_id
+        where user.username = #{username};
+    </select>
+
+
+</mapper>
