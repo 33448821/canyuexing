@@ -41,14 +41,10 @@ npm start
 ```
 
 # 贡献方式
-
-1.Fork 本仓库
-2.创建你的特性分支 (git checkout -b feature/AmazingFeature)
-3.提交你的改动 (git commit -m 'Add some AmazingFeature')
-4.推送到分支 (git push origin feature/AmazingFeature)
-5.提交一个 Pull Request
-
+1. Fork 本仓库
+2. 创建你的特性分支 (git checkout -b feature/AmazingFeature)
+3. 提交你的改动 (git commit -m 'Add some AmazingFeature')
+4. 推送到分支 (git push origin feature/AmazingFeature)
+5. 提交一个 Pull Request
 # 联系我们
-
 如果您有任何问题或建议，请通过邮件联系我们：contact@example.com
-
