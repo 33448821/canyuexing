@@ -41,7 +41,7 @@ public class UserController {
     public Result<String> login(@PathVariable String username, @PathVariable String password){
         String token = userService.login(username, password);
         if (!StrUtil.isBlank(token)){
-            return Result.success(token);
+            return Result.success(null,token);
         }
         return Result.failure("登录失败");
     }
@@ -78,6 +78,24 @@ public class UserController {
             return Result.failure("更新地址信息失败");
         }
         return Result.success(u);
+    }
+
+    /**
+     * 小程序
+     *
+     * 用户注册
+     *
+     * @param registerUser 需要注册的用户参数
+     * @return 成功返回200，失败返回401
+     */
+    @PostMapping("/register")
+    public Result<?> registerUser(@RequestBody User registerUser){
+        User user = userService.insertOneUser(registerUser);
+        if (user!=null){
+            return Result.success();
+        }else{
+            return Result.failure();
+        }
     }
 
 }

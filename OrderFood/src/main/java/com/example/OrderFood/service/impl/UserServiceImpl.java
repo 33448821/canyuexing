@@ -90,4 +90,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         return false;
     }
+
+    @Override
+    public User insertOneUser(User user) {
+        String username = user.getUsername();
+        User dtbUser = this.baseMapper.selectOneUserByUsername(username);
+        if (dtbUser != null){
+            return null;
+        }
+        user.setPhone(user.getUsername());
+        user.setAddress("上海市浦东区机场大道104号");
+        user.setName("李xx");
+        user.setMoney(BigDecimal.ZERO);
+        this.baseMapper.insert(user);
+        return user;
+    }
 }

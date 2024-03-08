@@ -22,7 +22,7 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Logger logger =LoggerFactory.getLogger(JwtInterceptor.class);
-        logger.info(request.getRequestURI());
+        logger.info("requestURL = " + request.getRequestURI());
 
         String token = request.getHeader("Authorization");
 

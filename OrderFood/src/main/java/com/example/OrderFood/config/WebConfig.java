@@ -17,6 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new JwtInterceptor())
                 .addPathPatterns("/**") // 注意顺序，先拦截后排除,一星任意1个字符，两星任意所有字符
                 .excludePathPatterns(
+                        "/api/register/**",
                         "/api/login/**",
                         "/images/**"
                 );

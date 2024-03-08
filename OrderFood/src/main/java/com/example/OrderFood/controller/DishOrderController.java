@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -59,13 +60,14 @@ public class DishOrderController {
     @GetMapping("/userOrderList/{username}")
     public Result<?> getOrderList(@PathVariable String username){
         List<DishOrder> orderList = orderService.getOrderByUsername(username);
+        orderList.sort(Comparator.comparing(DishOrder::getOrderTime).reversed());
         return Result.success(orderList);
     }
 
     /**
      * 小程序
      *
-     * 用户下单，新增订单2024年3月8日16:18:11
+     * 用户下单并且支付，新增订单2024年3月8日16:18:11
      *
      * @param order 前端取回的订单
      * @return 下单结果

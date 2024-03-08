@@ -51,6 +51,9 @@ public class Result<T> {
     public static <T> Result<T> success(T data) {
         return new Result<>(200, "请求成功", data);
     }
+    public static <T>Result<T> success(String msg){
+        return new Result<>(200,msg,null);
+    }
 
     public static <T> Result<T> success(String msg, T data) {
         return new Result<>(200, msg, data);

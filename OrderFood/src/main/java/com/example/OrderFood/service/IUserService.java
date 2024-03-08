@@ -29,4 +29,7 @@ public interface IUserService extends IService<User> {
     // 扣除用户余额
     boolean deductUserBalance(String username, BigDecimal balance);
 
+    // 新增用户
+    User insertOneUser(User user);
+
 }
