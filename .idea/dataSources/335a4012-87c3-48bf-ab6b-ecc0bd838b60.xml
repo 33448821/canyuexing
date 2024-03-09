@@ -942,175 +942,206 @@ SELECT|sys.sys_config
       <ObjectGrants>SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,SHUTDOWN,PROCESS,FILE,REFERENCES,INDEX,ALTER,SHOW DATABASES,SUPER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,CREATE TABLESPACE,CREATE ROLE,DROP ROLE!
 </ObjectGrants>
     </user>
-    <table id="296" parent="7" name="dish"/>
-    <table id="297" parent="7" name="dish_order"/>
-    <table id="298" parent="7" name="dish_type"/>
-    <table id="299" parent="7" name="order_details"/>
-    <table id="300" parent="7" name="user"/>
-    <column id="301" parent="296" name="dish_no">
+    <table id="296" parent="7" name="admin"/>
+    <table id="297" parent="7" name="dish"/>
+    <table id="298" parent="7" name="dish_order"/>
+    <table id="299" parent="7" name="dish_type"/>
+    <table id="300" parent="7" name="order_details"/>
+    <table id="301" parent="7" name="user"/>
+    <column id="302" parent="296" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="302" parent="296" name="type_no">
+    <column id="303" parent="296" name="sys_username">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="304" parent="296" name="sys_password">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="305" parent="296" name="admin_sys_username_uindex">
+      <ColNames>sys_username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="306" parent="296" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="307" parent="296" name="admin_sys_username_uindex">
+      <ColNames>sys_username</ColNames>
+      <UnderlyingIndexName>admin_sys_username_uindex</UnderlyingIndexName>
+    </key>
+    <column id="308" parent="297" name="dish_no">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="309" parent="297" name="type_no">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="303" parent="296" name="dish_name">
+    <column id="310" parent="297" name="dish_name">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="304" parent="296" name="description">
+    <column id="311" parent="297" name="description">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="305" parent="296" name="price">
+    <column id="312" parent="297" name="price">
       <Position>5</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="306" parent="296" name="img">
+    <column id="313" parent="297" name="img">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="307" parent="296" name="dish_dish_type_type_no_fk">
+    <index id="314" parent="297" name="dish_dish_type_type_no_fk">
       <ColNames>type_no</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="308" parent="296" name="PRIMARY">
+    <key id="315" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dish_no</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="309" parent="296" name="dish_dish_type_type_no_fk">
+    <foreign-key id="316" parent="297" name="dish_dish_type_type_no_fk">
       <ColNames>type_no</ColNames>
       <RefTableName>dish_type</RefTableName>
       <RefColNames>type_no</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="310" parent="297" name="order_id">
+    <column id="317" parent="298" name="order_id">
       <Position>1</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="311" parent="297" name="user_id">
+    <column id="318" parent="298" name="user_id">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="312" parent="297" name="order_time">
+    <column id="319" parent="298" name="order_time">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="313" parent="297" name="total_price">
+    <column id="320" parent="298" name="total_price">
       <Position>4</Position>
       <DataType>decimal(18,2 digit)|0s</DataType>
     </column>
-    <column id="314" parent="297" name="status">
+    <column id="321" parent="298" name="status">
       <Position>5</Position>
       <DataType>tinyint|0s</DataType>
     </column>
-    <index id="315" parent="297" name="order_order_id_uindex">
+    <index id="322" parent="298" name="order_order_id_uindex">
       <ColNames>order_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="316" parent="297" name="order_order_id_uindex">
+    <key id="323" parent="298" name="order_order_id_uindex">
       <ColNames>order_id</ColNames>
       <UnderlyingIndexName>order_order_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="317" parent="298" name="type_no">
+    <column id="324" parent="299" name="type_no">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="318" parent="298" name="type_name">
+    <column id="325" parent="299" name="type_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <key id="319" parent="298" name="PRIMARY">
+    <key id="326" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>type_no</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="320" parent="299" name="details_id">
+    <column id="327" parent="300" name="details_id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="321" parent="299" name="order_id">
+    <column id="328" parent="300" name="order_id">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="322" parent="299" name="dish_no">
+    <column id="329" parent="300" name="dish_no">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="323" parent="299" name="quantity">
+    <column id="330" parent="300" name="quantity">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <key id="324" parent="299" name="PRIMARY">
+    <key id="331" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>details_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="325" parent="300" name="id">
+    <column id="332" parent="301" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="326" parent="300" name="username">
+    <column id="333" parent="301" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="327" parent="300" name="password">
+    <column id="334" parent="301" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="328" parent="300" name="phone">
+    <column id="335" parent="301" name="phone">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="329" parent="300" name="money">
+    <column id="336" parent="301" name="money">
       <Position>5</Position>
       <DataType>decimal(18,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0.00</DefaultExpression>
     </column>
-    <column id="330" parent="300" name="address">
+    <column id="337" parent="301" name="address">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="331" parent="300" name="name">
+    <column id="338" parent="301" name="name">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="332" parent="300" name="user_username_uindex">
+    <index id="339" parent="301" name="user_username_uindex">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="300" name="PRIMARY">
+    <key id="340" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="334" parent="300" name="user_username_uindex">
+    <key id="341" parent="301" name="user_username_uindex">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>user_username_uindex</UnderlyingIndexName>
     </key>
