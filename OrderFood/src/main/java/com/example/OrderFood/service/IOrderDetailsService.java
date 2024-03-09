@@ -2,6 +2,9 @@ package com.example.OrderFood.service;
 
 import com.example.OrderFood.entity.OrderDetails;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.OrderFood.vo.OrderDetailVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IOrderDetailsService extends IService<OrderDetails> {
     boolean addOrderDetail(String orderID, int dishNo,int quantity);
+
+    List<OrderDetailVO> selectOrderDetailByOrderID(String oderID);
 }

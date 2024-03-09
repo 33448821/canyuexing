@@ -3,4 +3,11 @@
 <mapper namespace="com.example.OrderFood.mapper.OrderDetailsMapper">
 
 
+    <select id="selectOrderDetailByOrderId" resultType="com.example.OrderFood.vo.OrderDetailVO">
+        select dish_name, description, price, quantity, img
+        from order_details od
+                 join dish d on d.dish_no = od.dish_no
+        where od.order_id = #{orderID};
+    </select>
+
 </mapper>

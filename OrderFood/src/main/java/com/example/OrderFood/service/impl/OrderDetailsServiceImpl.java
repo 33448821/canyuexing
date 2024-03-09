@@ -4,7 +4,10 @@ import com.example.OrderFood.entity.OrderDetails;
 import com.example.OrderFood.mapper.OrderDetailsMapper;
 import com.example.OrderFood.service.IOrderDetailsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.OrderFood.vo.OrderDetailVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -21,5 +24,10 @@ public class OrderDetailsServiceImpl extends ServiceImpl<OrderDetailsMapper, Ord
     public boolean addOrderDetail(String orderID,int dishNo, int quantity) {
         OrderDetails orderDetails = new OrderDetails(orderID, dishNo, quantity);
         return this.baseMapper.insert(orderDetails)>0;
+    }
+
+    @Override
+    public List<OrderDetailVO> selectOrderDetailByOrderID(String oderID) {
+        return this.baseMapper.selectOrderDetailByOrderId(oderID);
     }
 }
