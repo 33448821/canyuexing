@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.OrderFood.mapper.AdminMapper">
 
+    <select id="selectAllOrderDTOs" resultType="com.example.OrderFood.dto.OrderDTO">
+        select do.order_id,
+               d.img,
+               d.dish_name,
+               d.price,
+               od.quantity,
+               do.total_price,
+               do.order_time,
+               do.status
+        from order_details od
+                 join dish d on d.dish_no = od.dish_no
+                 join dish_order do on do.order_id = od.order_id
+                 join user on user.id = do.user_id
+    </select>
+
+    <select id="selectAllOrdersToAdmin" resultType="com.example.OrderFood.vo.AdminDishVO">
+        select *,dish.type_no AS dishTypeNo from dish join dish_type on dish.type_no = dish_type.type_no;
+    </select>
+
 </mapper>
