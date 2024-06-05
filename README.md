@@ -33,13 +33,13 @@
 1. 克隆项目代码：
 
     ```bash
-    git clone https://github.com/yourusername/canyuexing.git
+    git clone https://github.com/33448821/canyuexing.git
     ```
 
 2. 进入后端目录并打包：
 
     ```bash
-    cd canyuexing-backend
+    cd OrderFood
     mvn clean install
     ```
 
@@ -54,7 +54,7 @@
 1. 进入前端目录并安装依赖：
 
     ```bash
-    cd canyuexing-frontend
+    cd order_food_vue
     npm install
     ```
 
@@ -66,9 +66,25 @@
 
 ### 小程序启动
 
-1. 使用微信开发者工具导入 `canyuexing-weapp` 目录。
+1. 使用微信开发者工具导入 `xcx` 目录。
 
 2. 配置小程序的后台接口地址为后端服务的地址。
+
+### 特别说明:部署到服务器时需要修改的IP地址
+
+### 1.小程序部分
+
+- pages\canteen\canteen.js
+
+- pages\order\order.js
+
+- utils\http.js
+
+
+
+### 2.Vue前端
+
+- order_food_vue/src/utils/request.js
 
 ## 贡献
 
@@ -80,11 +96,11 @@
 
 ---
 
-# Canyuexing Online Ordering System
+# CanYueXing Online Ordering System
 
 ## Introduction
 
-Canyuexing Online Ordering System is an online ordering platform that combines a Spring Boot backend, Vue frontend, and WeChat Mini Program. The project aims to provide users with a convenient online ordering experience while offering an efficient order management system for restaurants.
+The CanYueXing Online Ordering System is an integrated platform combining a Spring Boot backend, Vue frontend, and WeChat Mini Program. This project aims to provide users with a convenient online ordering experience while offering an efficient order management system for restaurants.
 
 ## Features
 
@@ -103,7 +119,7 @@ Canyuexing Online Ordering System is an online ordering platform that combines a
 
 ## Quick Start
 
-### Requirements
+### Prerequisites
 
 - JDK 8+
 - Node.js 14+
@@ -112,16 +128,16 @@ Canyuexing Online Ordering System is an online ordering platform that combines a
 
 ### Backend Setup
 
-1. Clone the repository:
+1. Clone the project repository:
 
     ```bash
-    git clone https://github.com/yourusername/canyuexing.git
+    git clone https://github.com/33448821/canyuexing.git
     ```
 
 2. Navigate to the backend directory and package the application:
 
     ```bash
-    cd canyuexing-backend
+    cd OrderFood
     mvn clean install
     ```
 
@@ -136,7 +152,7 @@ Canyuexing Online Ordering System is an online ordering platform that combines a
 1. Navigate to the frontend directory and install dependencies:
 
     ```bash
-    cd canyuexing-frontend
+    cd order_food_vue
     npm install
     ```
 
@@ -148,14 +164,26 @@ Canyuexing Online Ordering System is an online ordering platform that combines a
 
 ### Mini Program Setup
 
-1. Use WeChat Developer Tools to import the `canyuexing-weapp` directory.
+1. Import the `xcx` directory using the WeChat Developer Tools.
 
-2. Configure the mini program to use the backend service URL.
+2. Configure the Mini Program's backend API address to match the backend service address.
 
-## Contributing
+### Special Note: Modifying IP Addresses for Server Deployment
 
-We welcome contributions! Please fork this repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+#### 1. Mini Program
+
+- `pages/canteen/canteen.js`
+- `pages/order/order.js`
+- `utils/http.js`
+
+#### 2. Vue Frontend
+
+- `order_food_vue/src/utils/request.js`
+
+## Contribution
+
+Contributions are welcome! Please fork the repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. For details, please refer to the [LICENSE](LICENSE) file.
