@@ -20,10 +20,10 @@
 - 小程序：微信小程序
 
 ## 成品预览
-- 小程序端
+- 用户小程序端
 ![img.png](img.png) ![img_1.png](img_1.png)
 
-- 后台管理端
+- 管理员后台端
 ![img_2.png](img_2.png) ![img_3.png](img_3.png)
 ## 快速开始
 
