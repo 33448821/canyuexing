@@ -1,0 +1,32 @@
+/* pages/feedback/feedback.wxss */
+/* 在对应的 wxss 文件中 */
+.comment-page {
+  padding: 20rpx; /* 设置页面内边距 */
+}
+
+.comment-input {
+  margin-bottom: 20rpx; /* 设置输入框与按钮之间的间距 */
+}
+
+/* 在对应的 wxss 文件中 */
+.comment-input textarea {
+  width: 100%; /* 设置宽度占满父元素 */
+  height: 300rpx; /* 设置高度 */
+  border: 1rpx solid #ccc; /* 设置浅色边框 */
+  border-radius: 5rpx; /* 设置边框圆角 */
+  padding: 10rpx; /* 设置内边距 */
+  font-size: 28rpx; /* 设置字体大小 */
+  box-sizing: border-box; /* 设置盒子模型为边框盒模型 */
+}
+
+
+.comment-button button {
+  width: 100%; /* 按钮宽度占满父元素 */
+  height: 100rpx; /* 按钮高度 */
+  border: none; /* 去除按钮边框 */
+  background-color: #007aff; /* 按钮背景颜色 */
+  color: #fff; /* 字体颜色 */
+  font-size: 32rpx; /* 字体大小 */
+  border-radius: 5rpx; /* 边框圆角 */
+  cursor: pointer; /* 设置鼠标悬停样式为手型 */
+}

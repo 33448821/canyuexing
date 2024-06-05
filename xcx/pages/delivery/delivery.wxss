@@ -1,0 +1,9 @@
+/* pages/delivery/delivery.wxss */
+.line-view{
+  margin-top: 10%;
+  display: flex;
+  justify-content:space-evenly;
+}
+.info-input{
+  border-bottom: rgb(196, 188, 188) solid 1rpx;
+}

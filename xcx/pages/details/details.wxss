@@ -1,0 +1,118 @@
+/* pages/details/details.wxss */
+/* pages/personal_center/personal_center.wxss */
+/* 使用page就是为了保证  满屏 */
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.view_contain {
+  width: 100%;
+  height: 100%;
+  background: white
+}
+
+/* 第一部分 */
+
+.view_1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 350rpx;
+  background: rgb(52,120,247);
+}
+
+.view_image_text {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  /* flex-direction: column; */
+    /* align-items: center; */
+  color: white;
+  margin-left: 40rpx;
+  margin-top: 80rpx;
+}
+
+.uname{
+  display: flex;
+  flex-direction: column;
+  margin-left: 45rpx;
+
+  /* align-items: center; */
+  margin-top: 6rpx;
+}
+
+.image_radius {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+}
+
+
+
+/* 第三部分 */
+.big3{
+  width: 90%;
+  margin: 0rpx auto;
+  margin-top: -120rpx;
+  border: 1rpx solid lightgray;
+  border-radius: 20rpx;
+  background: white;
+}
+.view_3 {
+  width: 100%;
+  height: 100rpx;
+  /* background: #f0eeed; */
+  border-bottom: 1rpx solid lightgray;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  /* margin-top: 20rpx; */
+  position: relative; /*父元素位置要设置为相对*/
+ 
+  
+}
+
+.item-image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  border-radius: 12px;
+  border:1px solid white;
+  
+}
+
+.item-text {
+  color: gray;
+  /* color: rgb(51,51,51); */
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.item-text-right {
+  color: gray;
+  /* color: rgb(51,51,51); */
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+
+.image-jiantou {
+  width: 20rpx;
+  height: 35rpx;
+  position: absolute; /* 要约束所在位置的子元素的位置要设置成绝对 */
+  right: 0; /* 靠右调节 */
+  margin-right: 35rpx;
+}
+
+/*去掉最后面的下画线*/
+.box{
+  border: none;
+}
+

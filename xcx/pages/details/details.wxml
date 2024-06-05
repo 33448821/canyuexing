@@ -1,0 +1,85 @@
+<view class="view_contain">
+
+  <!-- 第一部分 -->
+  <view wx:if="{{userinfo}}">
+    <view class="view_1">
+      <view class="view_image_text">
+        <view>
+          <image class="image_radius" src="{{userinfo.head_portrait}}" />
+        </view>
+        <view class="uname">
+          <text>{{userinfo.username}}</text>
+          <text>{{userinfo.tel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="view_1">
+    <view class="view_image_text">
+      <view class="uname">
+        <view wx:if="{{username}}">
+          <!-- 如果用户名不为空，则显示用户名 -->
+          <text wx:if="{{user.name}}">Hi~{{user.name}}</text>
+          <text wx:if="{{!user.name}}">Hi~{{username}}</text>
+        </view>
+        <view wx:else>
+          <!-- 如果用户名为空，则显示未登录 -->
+          <navigator url="/pages/login/login">
+            <text>未登录</text>
+          </navigator>
+        </view>
+        <!-- <text>{{userinfo.tel}}</text> -->
+      </view>
+    </view>
+  </view>
+
+  <!-- 第三部分 -->
+  <view class="big3">
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item">
+        <text class="item-text">我的钱包</text>
+        <text class="item-text-right">¥ {{user.money}}</text>
+      </view>
+    </view>
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <navigator url="../delivery/delivery">
+        <view class="list-item">
+          <text class="item-text">修改配送信息</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item">
+        <text class="item-text">帮助说明</text>
+      </view>
+    </view>
+
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item">
+        <text class="item-text">联系我们</text>
+      </view>
+    </view>
+
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item">
+        <text class="item-text">检查版本</text>
+        <text class="item-text-right">V 1.0</text>
+      </view>
+    </view>
+
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item">
+        <text class="item-text">关于我们</text>
+      </view>
+    </view>
+
+    <view style="border-bottom:solid #e4dddd 1rpx;">
+      <view class="list-item" bind:tap="logout">
+        <text class="item-text">退出登录</text>
+      </view>
+    </view>
+
+  </view>
+</view>

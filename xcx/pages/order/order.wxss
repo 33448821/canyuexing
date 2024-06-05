@@ -1,0 +1,149 @@
+.mask-view{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 666;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.mask-ui{
+  border-radius: 25rpx;
+  z-index: 888;
+  width: 600rpx;
+  height: 800rpx;
+  background-color:#fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mask-ui scroll-view{
+  height: 45vh;
+  padding: 50rpx;
+}
+.text-detail{
+  display: flex;
+  flex-direction: column;
+}
+.text-detail .dish-instruction{
+  color: #888;
+}
+.dish-price-quantity{
+  color: orange;
+  font-weight: bolder;
+}
+.detail-item{
+  margin-left: 30rpx;
+  display: flex;
+  justify-content:start;
+  border-bottom: 3rpx solid #e5e5e5e5;
+  margin-bottom: 30rpx;
+}
+.detail-item image{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 15rpx;
+  margin-right: 20rpx;
+}
+.detail-item .dish-title{
+  color: #666;
+  font-weight: bold;
+}
+
+.body{
+  background-color: #ecececec;
+  height: 100vh;
+}
+
+.order-scroll{
+  background-color: #ecececec;
+}
+
+.order-card {
+  margin: 25rpx auto;
+  padding: 25rpx 0;
+  width: 700rpx;
+  background-color: #fff;
+  border-radius: 25rpx;
+
+
+}
+.order-card-view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-view-left{
+  margin-left: 30rpx;
+  height: 135rpx;
+}
+
+.order-text{
+  color: #666;
+}
+.order-time{
+  font: 0.7em sans-serif;
+  color: gray;
+}
+.price{
+  font-size: larger;
+  font-weight: bold;
+  color:orange
+}
+
+/* wx-label */
+wxlabel.primary {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #e6f7ff;
+  color: #1890ff;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/* success状态的wxlabel */
+wxlabel.success {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #f6ffed;
+  color: #52c41a;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* error状态的wxlabel */
+wxlabel.error {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #fff1f0;
+  color: #f5222d;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+/* wx-button */
+wxbutton {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #1890ff;
+  border-radius: 4px;
+  background-color: #1890ff;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
