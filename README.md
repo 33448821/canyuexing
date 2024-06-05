@@ -1,50 +1,161 @@
-# 点餐程序
+# 餐悦行在线点餐程序
 
-本项目是一个点餐程序，包括前后端分离的网页版和微信小程序版。
+## 介绍
 
-## 功能特点
+餐悦行在线点餐程序是一个结合了 Spring Boot 后端、Vue 前端和微信小程序的在线点餐系统。该项目旨在为用户提供便捷的在线点餐体验，同时为餐厅提供高效的订单管理系统。
 
-- 用户注册登录
-- 查看菜单并点餐
-- 下单并支付
-- 查看订单状态
-- 管理员权限：管理菜单、订单管理
+## 功能
+
+- 用户注册和登录
+- 浏览菜单和搜索菜品
+- 添加菜品到购物车
+- 在线支付
+- 查看订单历史
+- 餐厅后台管理系统
 
 ## 技术栈
 
-- 前端：Vue.js、微信小程序框架
-- 后端：Node.js、Express框架
-- 数据库：MySQL
+- 后端：Spring Boot
+- 前端：Vue
+- 小程序：微信小程序
 
-## 如何运行
+## 快速开始
 
-### 前端
+### 环境要求
 
-```bash
-# 进入前端目录
-cd frontend
+- JDK 8+
+- Node.js 14+
+- Maven 3+
+- 微信开发者工具
 
-# 安装依赖
-npm install
+### 后端启动
 
-# 运行开发服务器
-npm run serve
-# 进入后端目录
-cd backend
+1. 克隆项目代码：
 
-# 安装依赖
-npm install
+    ```bash
+    git clone https://github.com/yourusername/canyuexing.git
+    ```
 
-# 运行服务器
-npm start
+2. 进入后端目录并打包：
 
-```
+    ```bash
+    cd canyuexing-backend
+    mvn clean install
+    ```
 
-# 贡献方式
-1. Fork 本仓库
-2. 创建你的特性分支 (git checkout -b feature/AmazingFeature)
-3. 提交你的改动 (git commit -m 'Add some AmazingFeature')
-4. 推送到分支 (git push origin feature/AmazingFeature)
-5. 提交一个 Pull Request
-# 联系我们
-如果您有任何问题或建议，请通过邮件联系我们：contact@example.com
+3. 启动 Spring Boot 应用：
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+### 前端启动
+
+1. 进入前端目录并安装依赖：
+
+    ```bash
+    cd canyuexing-frontend
+    npm install
+    ```
+
+2. 启动 Vue 应用：
+
+    ```bash
+    npm run serve
+    ```
+
+### 小程序启动
+
+1. 使用微信开发者工具导入 `canyuexing-weapp` 目录。
+
+2. 配置小程序的后台接口地址为后端服务的地址。
+
+## 贡献
+
+欢迎贡献代码！请 fork 本仓库并提交 pull request。对于重大更改，请先打开一个 issue 讨论您想要更改的内容。
+
+## 许可证
+
+本项目采用 MIT 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
+
+---
+
+# Canyuexing Online Ordering System
+
+## Introduction
+
+Canyuexing Online Ordering System is an online ordering platform that combines a Spring Boot backend, Vue frontend, and WeChat Mini Program. The project aims to provide users with a convenient online ordering experience while offering an efficient order management system for restaurants.
+
+## Features
+
+- User registration and login
+- Browse menu and search for dishes
+- Add dishes to the shopping cart
+- Online payment
+- View order history
+- Restaurant backend management system
+
+## Tech Stack
+
+- Backend: Spring Boot
+- Frontend: Vue
+- Mini Program: WeChat Mini Program
+
+## Quick Start
+
+### Requirements
+
+- JDK 8+
+- Node.js 14+
+- Maven 3+
+- WeChat Developer Tools
+
+### Backend Setup
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/canyuexing.git
+    ```
+
+2. Navigate to the backend directory and package the application:
+
+    ```bash
+    cd canyuexing-backend
+    mvn clean install
+    ```
+
+3. Start the Spring Boot application:
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory and install dependencies:
+
+    ```bash
+    cd canyuexing-frontend
+    npm install
+    ```
+
+2. Start the Vue application:
+
+    ```bash
+    npm run serve
+    ```
+
+### Mini Program Setup
+
+1. Use WeChat Developer Tools to import the `canyuexing-weapp` directory.
+
+2. Configure the mini program to use the backend service URL.
+
+## Contributing
+
+We welcome contributions! Please fork this repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
