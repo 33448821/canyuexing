@@ -6,6 +6,7 @@ import com.example.OrderFood.dto.OrderDTO;
 import com.example.OrderFood.entity.DishType;
 import com.example.OrderFood.entity.Result;
 import com.example.OrderFood.service.IAdminService;
+import com.example.OrderFood.vo.FeedbackVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,6 +115,16 @@ public class AdminController {
     @DeleteMapping("/deleteUser/{username}")
     public Result<?> deleteUser(@PathVariable("username") String username){
         return Result.success(adminService.deleteUserByUsername(username));
+    }
+
+    @GetMapping("/feedbackList")
+    public Result<List<FeedbackVO>> getFeedbackList(){
+        return Result.success(adminService.getAllFeedbacks());
+    }
+
+    @DeleteMapping("/deleteFeedback/{id}")
+    public Result<?> deleteFeedback(@PathVariable("id") int id){
+        return Result.success(adminService.deleteFeedbackById(id));
     }
 
 }

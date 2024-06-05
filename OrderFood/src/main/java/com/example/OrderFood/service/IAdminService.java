@@ -6,6 +6,7 @@ import com.example.OrderFood.dto.OrderDTO;
 import com.example.OrderFood.entity.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.OrderFood.entity.DishType;
+import com.example.OrderFood.vo.FeedbackVO;
 
 import java.util.List;
 
@@ -47,5 +48,8 @@ public interface IAdminService extends IService<Admin> {
 
     int deleteUserByUsername(String username);
 
+    List<FeedbackVO> getAllFeedbacks();
+
+    int deleteFeedbackById(int id);
 
 }

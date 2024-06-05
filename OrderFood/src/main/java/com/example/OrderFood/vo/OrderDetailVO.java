@@ -8,29 +8,19 @@ import java.math.BigDecimal;
  * Description
  */
 public class OrderDetailVO {
+    private int dishNo;
     private String dishName;
     private String description;
     private BigDecimal price;
     private int quantity;
     private String img;
 
-    @Override
-    public String toString() {
-        return "OrderDetailVO{" +
-                "dishName='" + dishName + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                ", img='" + img + '\'' +
-                '}';
+    public int getDishNo() {
+        return dishNo;
     }
 
-    public OrderDetailVO(String dishName, String description, BigDecimal price, int quantity, String img) {
-        this.dishName = dishName;
-        this.description = description;
-        this.price = price;
-        this.quantity = quantity;
-        this.img = img;
+    public void setDishNo(int dishNo) {
+        this.dishNo = dishNo;
     }
 
     public String getDishName() {
@@ -70,6 +60,27 @@ public class OrderDetailVO {
     }
 
     public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDetailVO{" +
+                "dishNo=" + dishNo +
+                ", dishName='" + dishName + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", img='" + img + '\'' +
+                '}';
+    }
+
+    public OrderDetailVO(int dishNo, String dishName, String description, BigDecimal price, int quantity, String img) {
+        this.dishNo = dishNo;
+        this.dishName = dishName;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
         this.img = img;
     }
 }

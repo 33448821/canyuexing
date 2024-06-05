@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.OrderFood.mapper.FeedbackMapper">
+
+    <select id="getFeedbackByDishNo" resultType="com.example.OrderFood.vo.FeedbackVO">
+        select feedback.id, u.name, feedback.comments, feedback.create_time from feedback join user u on feedback.user_id = u.id where dish_no = #{dishNo};
+    </select>
+    <select id="getAllFeedbacks" resultType="com.example.OrderFood.vo.FeedbackVO">
+        select feedback.id, u.name, feedback.comments, feedback.create_time from feedback join user u on feedback.user_id = u.id;
+    </select>
+</mapper>

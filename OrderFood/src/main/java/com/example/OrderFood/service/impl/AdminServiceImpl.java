@@ -9,6 +9,7 @@ import com.example.OrderFood.dto.OrderDTO;
 import com.example.OrderFood.mapper.*;
 import com.example.OrderFood.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.OrderFood.vo.FeedbackVO;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
     @Resource
     private DishMapper dishMapper;
+
+    @Resource
+    private FeedbackMapper feedbackMapper;
 
     @Override
     public List<OrderDTO> getAllOrderList() {
@@ -154,5 +158,14 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return userMapper.delete(wrapper);
     }
 
+    @Override
+    public List<FeedbackVO> getAllFeedbacks() {
+        return feedbackMapper.getAllFeedbacks();
+    }
+
+    @Override
+    public int deleteFeedbackById(int id) {
+        return feedbackMapper.deleteById(id);
+    }
 
 }
