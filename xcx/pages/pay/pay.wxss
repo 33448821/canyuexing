@@ -1,0 +1,39 @@
+/* pages/pay/pay.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.icon {
+  width: 56px;
+  height: 46px;
+  margin-bottom: 10rpx;
+}
+
+.title {
+  font-size: 1.5em;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.message {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.button {
+  width: 200px;
+  height: 40px;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 1em;
+  border: none;
+  border-radius: 40rpx;
+  margin-top:600rpx;
+}

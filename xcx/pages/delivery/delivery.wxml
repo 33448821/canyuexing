@@ -1,0 +1,20 @@
+<!--pages/delivery/delivery.wxml-->
+<!-- 修改联系人页面 -->
+<view>
+
+  <view class="line-view">
+    <text>联系人</text>
+    <input class="info-input" maxlength="6" placeholder="请输入联系人" bindinput="handleInputName" value="{{user.name}}"/>
+  </view>
+  <view class="line-view">
+    <text>手机号</text>
+    <input class="info-input" maxlength="11" type="number" placeholder="请输入11位手机号" bindinput="handleInputPhone" value="{{user.phone}}"/>
+  </view>
+  <view class="line-view">
+    <text>收货地址</text>
+    <textarea class="info-input" auto-height placeholder="请输入收货地址"  style="width: 380rpx;" bindinput="handleInputAddress" value="{{user.address}}"/>
+  </view>
+
+  <button type="primary" style="width: 300rpx;margin-top: 80rpx;" bind:tap="editDeliveryInfo">保存信息</button>
+
+</view>

@@ -1,0 +1,109 @@
+<!--pages/canteen/canteen.wxml-->
+<view class="page">
+  <view class="header-input" style="background:#efefef;height:100rpx;width:100%;position: fixed;top: 0px;z-index: 20;">
+    <!-- 搜索条 -->
+    <view class="search-input" style="background-color: white;width: 90%;margin: 10px auto;border-radius: 20px;height:60rpx;">
+      <!-- bindtap="searchNav" -->
+      <icon size='15' type='search' style="margin: 15rpx 10rpx;float: left;"></icon>
+      <view style="padding-top:6rpx;float: left;width: 90%;font-size: 28rpx;">
+        <input bindblur="Search" placeholder="请输入菜名" />
+      </view>
+    </view>
+  </view>
+  <view class="body">
+    <!-- 左侧滚动栏 -->
+    <view style='float: left' class='left'>
+      <scroll-view scroll-y scroll-with-animation scroll-left="{{scrollLength}}" class='scrollY' style='height: {{winHeight}}px'>
+        <view class='all clear'>
+          <block wx:key="tabs" wx:for="{{tabs}}">
+            <view bindtap='jumpIndex' data-menuindex='{{index}}' data-typeno='{{item.typeno}}'>
+              <view class="text-style {{indexId==index?' activeView':''}}">
+                <text class="{{indexId==index?'active1':''}}">{{item.typename}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 右侧商品 -->
+    <view class="right" style='height: {{winHeight}}rpx;width:calc(100% - 200rpx);'>
+      <scroll-view scroll-y scroll-with-animation scroll-left="{{scrollLength}}" bindscroll="scrollToLeft" scroll-into-view="{{toTitle}}" class='scrollRight' style='height: {{winHeight}}px'>
+        <block wx:key="tabs" wx:for="{{tabs}}" wx:for-item="typeitem">
+          <view id="view-{{typeitem.typeno}}">
+            <view class="title" id="title-{{typeitem.typeno}}">{{typeitem.typename}}</view>
+            <view class="orders" wx:for="{{tabsList}}" wx:key="tabsList" wx:for-item="tabitem">
+              <view wx:if="{{tabitem.typeno==typeitem.typeno}}" style="height:180rpx;border-bottom:1rpx solid #F0F0F0;width:96%;margin:20rpx auto;">
+                <view bind:tap="showDishFeedback" data-param="{{tabitem}}">
+                  <image src="{{tabitem.img}}" bindtap="toDetail" data-id="{{tabitem.dishno}}" data-ch_typeno="{{tabitem.typeno}}" style="width:160rpx;height:160rpx;float:left;"></image>
+                </view>
+                <view style="width:calc(100% - 180rpx);float:right;height:160rpx;">
+                  <view bind:tap="showDishFeedback" data-param="{{tabitem}}">
+                    <view style="height:40rpx;line-height:40rpx;margin-top:5rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                      {{tabitem.dishname}}
+                    </view>
+                    <view style="height:40rpx;line-height:40rpx;margin-top:15rpx;font-size:24rpx;color:#c2c2c2;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                      <text style="color:red;">售价：￥{{tabitem.price}}</text>
+                    </view>
+                  </view>
+                  <view style="height:40rpx;line-height:40rpx;margin-top:15rpx;">
+                    <text style="color:#c2c2c2;font-size:24rpx;">{{tabitem.description}}</text>
+                    <view style="display: flex;float: right;">
+                      <!-- 减号 -->
+                      <image src="../../image/sub.png" style="width: 20px;height: 20px;" bindtap="subCount" data-item="{{tabitem}}"></image>
+                      <input style="width: 45rpx;display: inline-block;text-align: center;" disabled type="number" value="{{tabitem.quantity}}" />
+                      <!-- 加号 -->
+                      <image src="../../image/add.png" style="width: 20px;height: 20px;margin-top: 3rpx;" bindtap="addCount" data-item="{{tabitem}}"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 底部下单 -->
+  <view class="bottom_box">
+    <image src="../../image/cart.png" style="width: 32px;height: 32px;"></image>
+    <view class="all_money">总计：{{totalPrice}}元，{{totalNum}}件</view>
+    <view class="choose_ok color-block" bindtap="gotoOrder">提交</view>
+  </view>
+  <!-- 蒙版遮罩 -->
+  <view class="modal-mask" bindtap="closeMask" wx:if="{{showMask}}"></view>
+  <!-- 支付 -->
+  <view class="cart_popup" wx:if="{{showMask}}">
+    <text style="width:100%;display: flex;justify-content: center; margin:20rpx 0">支付订单</text>
+    <view>
+      <text style="font-size: large; color: orange;height: 100rpx;line-height: 100rpx;width:100%;display: flex;justify-content: center;border-bottom: solid 2rpx #eee;">订单支付:{{totalPrice}}元</text>
+    </view>
+    <view style="margin:30rpx 0 30rpx 10rpx">
+      <text style="font-size: 40rpx;flex-direction:column;width: 100%;">我的钱包(剩余¥{{user.money}})</text>
+    </view>
+    <button type="primary" style="margin-top: 30rpx;" bind:tap="submitOrder">支付</button>
+  </view>
+
+
+  <!-- 评论蒙版 -->
+  <view class="feedback-mask" bind:tap="changeFeedbackMask" wx:if="{{showFeedbackMask}}">
+  </view>
+
+  <view class="feedback-box" wx:if="{{showFeedbackMask}}">
+  <scroll-view scroll-y style="height:100%">
+    <block wx:if="{{feedbacks.length === 0}}">
+      <view class="no-feedback">暂无评价</view>
+    </block>
+    <block wx:else>
+      <view wx:for="{{feedbacks}}" wx:key="index" class="comment">
+        <view class="author">{{item.name}}</view>
+        <view class="content">{{item.comment}}</view>
+        <view class="date">{{item.time}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+
+
+
+</view>

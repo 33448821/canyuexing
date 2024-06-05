@@ -1,0 +1,8 @@
+<view class="comment-page">
+  <view class="comment-input">
+    <textarea placeholder="请输入评价内容" bindinput="inputChange"></textarea>
+  </view>
+  <view class="comment-button">
+    <button type="primary" bindtap="submitComment">提交评价</button>
+  </view>
+</view>

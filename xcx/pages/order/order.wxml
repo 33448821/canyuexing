@@ -1,0 +1,49 @@
+<view class="body">
+  <scroll-view scroll-y="true" class="order-scroll">
+
+    <view class="order-card" wx:for="{{orderData}}" wx:key="orderID" bind:tap="getOrderDetail" data-oid="{{item.orderId}}">
+      <view class="order-card-view">
+        <view class="item-view-left">
+          <text class="order-text">{{item.orderId}}</text>
+          <view><text class="order-time">下单时间:{{item.orderTime}}</text></view>
+          <text class="price">¥ {{item.totalPrice}}</text>
+        </view>
+
+        <view>
+          <!-- wx-label -->
+          <wxlabel class="primary" wx:if="{{item.status === 0}}">准备中</wxlabel>
+          <!-- wx-label -->
+          <wxlabel class="success" wx:if="{{item.status === 1}}">已完成</wxlabel>
+          <wxlabel class="error" wx:if="{{item.status === 2}}">已退款</wxlabel>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <view class="mask-view" wx:if="{{showUI}}">
+    <view class="mask-ui">
+
+      <scroll-view scroll-y style="height:100%">
+
+        <view class="detail-item" wx:for="{{detailList}}" wx:key="index" wx:for-item="item">
+          <image src="{{imgURL}}{{item.img}}" />
+          <view style="position: relative;">
+            <view class="text-detail">
+              <text class="dish-title">{{item.dishName}}</text>
+              <text class="dish-instruction">{{item.description}}</text>
+              <text class="dish-price-quantity">¥{{item.price}} × 1</text>
+            </view>
+            <wxbutton bind:tap="goToComments" data-item="{{item}}" style="height:40rpx;width:60rpx;position: absolute;top: 0;left: 300rpx;">评价</wxbutton>
+          </view>
+        </view>
+
+      </scroll-view>
+
+      <view class="close-bar">
+        <wxbutton bind:tap="closeUI">确定</wxbutton>
+      </view>
+
+    </view>
+  </view>
+</view>

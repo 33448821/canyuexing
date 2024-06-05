@@ -1,0 +1,8 @@
+<!--pages/pay/pay.wxml-->
+<!-- 支付完成页面 -->
+<view class="container">
+  <image class="icon" src="/image/pay_success.png"></image>
+  <text class="title">支付成功</text>
+  <text class="message">¥ {{orderMoney}}</text>
+  <button class="button" bind:tap="returnMyOrderPage">返回订单</button>
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/canteen/canteen",
+    "pages/details/details",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/delivery/delivery",
+    "pages/pay/pay",
+    "pages/feedback",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "餐悦行在线订餐小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfc1ab",
+    "selectedColor": "#13b11c",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/index.png",
+        "selectedIconPath": "image/index_HD.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/canteen/canteen",
+        "iconPath": "image/food.png",
+        "selectedIconPath": "image/food_HD.png",
+        "text": "点餐"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "image/order.png",
+        "selectedIconPath": "image/order_HD.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/details/details",
+        "iconPath": "image/icon_component.png",
+        "selectedIconPath": "image/icon_component_HL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
