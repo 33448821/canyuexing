@@ -21,10 +21,10 @@
 
 ## 成品预览
 - 用户小程序端
-![img.png](img.png) ![img_1.png](img_1.png)
+![img.png](ImgsView/img.png) ![img_1.png](ImgsView/img_1.png)
 
 - 管理员后台端
-![img_2.png](img_2.png) ![img_3.png](img_3.png)
+![img_2.png](ImgsView/img_2.png) ![img_3.png](ImgsView/img_3.png)
 ## 快速开始
 
 ### 环境要求
